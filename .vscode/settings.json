@@ -1,0 +1,78 @@
+{
+  "editor.tabSize": 2,
+  "editor.formatOnType": false,
+  "editor.formatOnSave": false,
+  "eslint.enable": true,
+  // "eslint.autoFixOnSave": true,
+  "eslint.run": "onType",
+  "eslint.options": {
+    "extensions": [
+      ".js",
+      ".ts",
+      ".vue"
+    ]
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "vue",
+    "typescript",
+    "ts"
+  ],
+  "files.autoSave": "onFocusChange",
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.vscode": false,
+    "**/.DS_Store": true
+  },
+  "search.useIgnoreFiles": false,
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/.vscode": true
+  },
+  "vetur.validation.template": false,
+  "workbench.settings.useSplitJSON": true,
+  "vetur.format.defaultFormatterOptions": {
+    "prettyhtml": {
+      "printWidth": 100,
+      "singleQuote": false,
+      "wrapAttributes": true,
+      "sortAttributes": true
+    },
+    "prettier": {
+      "printWidth": 120,
+      "singleQuote": true
+    },
+    "prettier-eslint": {
+      "singleQuote": true
+    }
+  },
+  "vetur.format.defaultFormatter.js": "prettier",
+  "vetur.format.defaultFormatter.ts": "prettier",
+  "vetur.format.defaultFormatter.html": "prettyhtml",
+  "vetur.format.defaultFormatter.css": "prettyhtml",
+  "vetur.format.defaultFormatter.scss": "prettyhtml",
+  "[vue]": {
+    "editor.defaultFormatter": "octref.vetur"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "octref.vetur"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.tslint": true
+  }
+}

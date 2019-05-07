@@ -1,0 +1,236 @@
+@import '../index';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+// reset
+html,
+body {
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  font-family: SourceHanSansCN, -apple-system-font, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: $--font-size-md;
+  color: $--text-color-primary;
+}
+
+// font-size 13 - 43px 等差数列；
+@for $i from 0 through 15 {
+  $var: 13 + $i * 2;
+
+  .font-size-#{$var} {
+    font-size: $var + px;
+  }
+}
+
+.font-size-8 {
+  display: inline-block;
+  font-size: $--font-size-xs;
+  transform: scale(0.666667);
+}
+
+.font-size-9 {
+  display: inline-block;
+  font-size: $--font-size-xs;
+  transform: scale(0.75);
+}
+
+.font-size-10 {
+  display: inline-block;
+  font-size: $--font-size-xs;
+  transform: scale(0.833334);
+}
+
+.font-size-11 {
+  display: inline-block;
+  font-size: $--font-size-xs;
+  transform: scale(0.9166667);
+}
+
+@each $key,
+$value in $--font-size-map {
+  .#{$key} {
+    font-size: $value;
+  }
+}
+
+// padding magin 
+@each $key1,
+$value1 in $--padding-margin-map {
+
+  @each $key2,
+  $value2 in $--padding-margin-size-map {
+    $className: #{$key1}-#{$key2};
+    $propetyValue: $value2;
+
+    .#{$className} {
+      @each $key3 in $value1 {
+        #{$key3}: $propetyValue;
+      }
+    }
+  }
+}
+
+// border
+@each $key in border,
+border-top,
+border-right,
+border-bottom,
+border-left {
+  .#{$key} {
+    #{$key}: 1px solid $--border-color-base;
+  }
+}
+
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.scroll {
+  overflow: auto;
+}
+
+.scroll-x,
+.overflow-scroll-x {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.scroll-y,
+.overflow-scroll-y {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.clearfix {
+  @include utils-clearfix;
+}
+
+.ellipsis {
+  @include utils-ellipsis;
+}
+
+.ellipsis2 {
+  @include utils-ellipsis2;
+}
+
+.ellipsis3 {
+  @include utils-ellipsis2(3);
+}
+
+.active,
+.ins-active {
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+
+// 
+.color-theme-primary {
+  color: $--text-color-theme;
+}
+
+.color-primary {
+  color: $--color-primary;
+}
+
+.color-success {
+  color: $--color-success;
+}
+
+.color-success-light-1 {
+  color: $--color-success-light-1;
+}
+
+.color-success-light-2 {
+  color: $--color-success-light-2;
+}
+
+.color-warning {
+  color: $--color-warning;
+}
+
+.color-danger {
+  color: $--color-danger;
+}
+
+.color-error {
+  color: $--color-error;
+}
+
+.color-secondary {
+  color: $--color-text-secondary;
+}
+
+.color-regular {
+  color: $--color-text-regular;
+}
+
+// background color
+.bg-base {
+  background-color: $--background-color-base !important;
+}
+
+.bg-white {
+  background-color: $--color-white !important;
+}
+
+// othors
+
+// page compo class
+
+.main-contain,
+.wrapper {
+  box-sizing: border-box;
+}
+
+.text-primary {
+  font-size: $--font-size-md;
+  vertical-align: middle;
+}
+
+.text-secondary {
+  color: $--text-color-secondary;
+  font-size: $--font-size-sm;
+  vertical-align: middle;
+}
+
+.box-shadow1 {
+  @include box-shadow1;
+}
+
+.box-shadow2 {
+  @include box-shadow2;
+}
+
+.box-shadow3 {
+  @include box-shadow3;
+}

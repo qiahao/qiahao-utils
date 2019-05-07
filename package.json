@@ -1,0 +1,85 @@
+{
+  "name": "innisfree_app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "ui": "vue ui",
+    "dev": "vue-cli-service serve",
+    "serve": "vue-cli-service serve",
+    "inspect": "vue inspect > output.webpack.config.js",
+    "update:amorepay": "npm i amorepay",
+    "build": "vue-cli-service build",
+    "build:dev": "vue-cli-service build --mode test",
+    "lint": "vue-cli-service lint",
+    "fix": "eslint --fix --ext .js --ext .ts --ext .vue src"
+  },
+  "dependencies": {
+    "amorepay": "0.0.4",
+    "bpui.js": "^0.1.1",
+    "console-polyfill": "^0.3.0",
+    "core-js": "^3.4.4",
+    "crypto-js": "^4.0.0",
+    "febs": "^0.8.94",
+    "febs-browser": "^0.8.93",
+    "spark-md5": "^3.0.1",
+    "store2": "^2.10.0",
+    "vue": "^2.6.10",
+    "vue-amap": "^0.5.10",
+    "vue-awesome-swiper": "^3.1.3",
+    "vue-class-component": "^7.0.2",
+    "vue-property-decorator": "^8.3.0",
+    "vue-waterfall2": "^1.9.6",
+    "vuex": "^3.1.2",
+    "vuex-class": "^0.3.2"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.3.33",
+    "@types/spark-md5": "^3.0.2",
+    "@vue/cli-plugin-babel": "^4.1.0",
+    "@vue/cli-plugin-eslint": "^4.1.0",
+    "@vue/cli-plugin-typescript": "^4.1.1",
+    "@vue/cli-service": "^4.1.0",
+    "@vue/eslint-config-typescript": "^4.0.0",
+    "babel-eslint": "^10.0.3",
+    "babel-plugin-import": "^1.13.0",
+    "css-loader": "^3.4.2",
+    "element-ui": "^2.13.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-html": "^6.0.0",
+    "eslint-plugin-vue": "^5.2.3",
+    "husky": "^4.0.9",
+    "node-sass": "^4.13.1",
+    "register-service-worker": "^1.6.2",
+    "sass-loader": "^8.0.0",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2",
+    "svg-sprite-loader": "^4.1.6",
+    "typescript": "~3.6.0",
+    "vue-template-compiler": "^2.6.10",
+    "vuex-class": "^0.3.2"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended",
+      "@vue/typescript"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "@typescript-eslint/parser"
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  }
+}

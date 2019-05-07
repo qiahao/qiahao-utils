@@ -1,0 +1,20 @@
+@import '../varHelper/index.scss';
+
+.bp-dialog{
+//   .bp-dialog__title{
+//     font-size: $--font-size-lg;
+//   }
+  .bp-widget__content{
+    margin-top: 10vh;
+    margin-bottom: 3vh;
+    font-size: $--font-size-md;
+  }
+  .bp-dialog__foot{
+    button:not(:last-child){
+      color: $--text-color-secondary;
+    }
+    button:last-child{
+      color: $--color-theme-primary;
+    }
+  }
+}

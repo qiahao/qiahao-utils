@@ -1,0 +1,9 @@
+
+@import '../varHelper/index.scss';
+
+@include b(flex){
+  @include flex();
+  @include when(nowrap) {
+    flex-wrap: nowrap;
+  };
+}

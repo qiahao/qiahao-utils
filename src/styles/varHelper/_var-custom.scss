@@ -1,0 +1,175 @@
+/**
+* Copyright (c) 2020 Copyright bp All Rights Reserved.
+* Author: qiahao
+* Date: 2020-03-24 11:49
+* Desc:
+*/
+// ============= config
+$ns: 'ins';
+$namespace: $ns;
+
+// =============
+
+$--color-theme: #024137;
+$--color-theme-primary: $--color-theme;
+$--color-success: $--color-theme-primary;
+$--color-success-light-1: #41695E;
+$--color-success-light-2: #83A48A;
+$--color-error: #ED1C24;
+$--color-danger: $--color-error;
+$--color-warning: #DDC172;
+$--color-white: #fff;
+
+// text color
+$--color-dark: #3E4147;
+$--color-dark-light-1: #898587;
+$--color-dark-light-2: #D1D0CE;
+$--color-dark-light-3: #D1D0CE;
+$--color-text-primary: $--color-dark;
+$--color-text-regular: $--color-dark-light-1;
+$--color-text-secondary: $--color-dark-light-2;
+$--color-text-placeholder: $--color-dark-light-3;
+$--text-color-primary: $--color-dark;
+$--text-color-regular: $--color-dark-light-1;
+$--text-color-secondary: $--color-dark-light-2;
+$--text-color-placeholder: $--color-dark-light-3;
+$--text-color-theme: $--color-theme;
+$--text-color-disabled: $--text-color-regular;
+$--text-color-success: $--color-success;
+$--text-color-success-light-1: $--color-success-light-1;
+$--text-color-success-light-2: $--color-success-light-2;
+$--text-color-black: #000;
+
+// background color
+$--background-color-theme: $--color-theme;
+$--background-color-dark: $--color-dark;
+$--background-color-base: #F1F1F0;
+$--background-color-success: $--color-success;
+$--background-color-success-light-1: $--color-success-light-1;
+$--background-color-success-light-2: $--color-success-light-2;
+$--background-color-light: #E4E7ED;
+$--background-color-white: $--color-white;
+
+// border-color
+$--border-color-theme: $--color-theme;
+$--border-color-base: #F4F5F7;
+$--border-color-dark: #898587;
+$--border-color-white: $--color-white;
+$--border-color-primary: #d1d0ce;
+
+// radius
+$--radius-xs: 7px;
+$--radius-sm: 10px;
+$--radius-md: 13px;
+$--radius-lg: 17px;
+$--radius-xl: 27px;
+$--radius-xxl: 40px;
+
+// font-size
+$--font-size-xs: 12px;
+$--font-size-sm: 13px;
+$--font-size-md: 14px;
+$--font-size-lg: 16px;
+$--font-size-xl: 17px;
+$--font-size-xxl: 23px;
+$--font-size-xxxl: 29px;
+
+$--font-size-map: (font-size-xs: $--font-size-xs,
+  font-size-sm: $--font-size-sm,
+  font-size-md: $--font-size-md,
+  font-size-lg: $--font-size-lg,
+  font-size-xl: $--font-size-xl,
+  font-size-xxl: $--font-size-xxl,
+  font-size-xxxl: $--font-size-xxxl);
+
+// padingn margin
+$--padding-xs: 2vw;
+$--padding-sm: 3vw;
+$--padding-md: 6vw;
+$--padding-lg: 8vw;
+$--padding-xl: 10vw;
+$--padding-xxl: 12vw;
+$--margin-xs: $--padding-xs;
+$--margin-sm: $--padding-sm;
+$--margin-md: $--padding-md;
+$--margin-lg: $--padding-lg;
+$--margin-xl: $--padding-xl;
+$--margin-xxl: $--padding-xxl;
+
+$--padding-margin-map: (pd: padding,
+  pt: padding-top,
+  pr: padding-right,
+  pb: padding-bottom,
+  pl: padding-left,
+  mg: margin,
+  mt: margin-top,
+  mr: margin-right,
+  mb: margin-bottom,
+  ml: margin-left,
+  plr: padding-left padding-right,
+  ptb: padding-top padding-bottom,
+  mlr: margin-left margin-right,
+  mtb: margin-top margin-bottom);
+
+$--padding-margin-size-map: (xs: $--padding-xs,
+  sm: $--padding-sm,
+  md: $--padding-md,
+  lg: $--padding-lg,
+  xl: $--padding-xl,
+  xxl: $--padding-xxl);
+
+
+// flex
+@mixin flex {
+  display: flex;
+
+  &:before,
+  &:after {
+    display: none;
+  }
+
+  @include when(justify-center) {
+    justify-content: center;
+  }
+
+  @include when(justify-space-between) {
+    justify-content: space-between;
+  }
+
+  @include when(align-space-between) {
+    align-items: space-between;
+  }
+
+  @include when(justify-space-around) {
+    justify-content: space-around;
+  }
+
+  @include when(align-space-around) {
+    align-items: space-around;
+  }
+
+  @include when(align-middle) {
+    align-items: center;
+  }
+
+  @include when(column) {
+    flex-direction: column;
+  }
+
+  @include when(center) {
+    justify-content: center;
+    align-items: center;
+  }
+
+  @for $i from 1 through 6 {
+    .#{$namespace}-flex__#{$i} {
+      flex: $i;
+    }
+  }
+}
+
+$--header-height: 44px;
+$--header-left: 21px;
+$--header-right: 21px;
+$--footer-height: 50px;
+$--header-zIndex: 99;

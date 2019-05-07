@@ -1,0 +1,64 @@
+@mixin utils-user-select($value) {
+  -moz-user-select: $value;
+  -webkit-user-select: $value;
+  -ms-user-select: $value;
+}
+
+@mixin utils-clearfix {
+  $selector: &;
+
+  @at-root {
+
+    #{$selector}::before,
+    #{$selector}::after {
+      display: table;
+      content: "";
+    }
+
+    #{$selector}::after {
+      clear: both
+    }
+  }
+}
+
+@mixin utils-vertical-center {
+  $selector: &;
+
+  @at-root {
+    #{$selector}::after {
+      display: inline-block;
+      content: "";
+      height: 100%;
+      vertical-align: middle
+    }
+  }
+}
+
+@mixin utils-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin utils-ellipsis2($clamp: 2, $lineHeight: 1.5) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $clamp;
+  overflow: hidden;
+  line-height: 1.5;
+  height: $clamp * $lineHeight + em;
+  @if $clamp > 1 {
+    word-break: break-all;
+  }
+}
+
+// box-shadow
+@mixin box-shadow1() {
+  box-shadow: 0 0 10px rgba(#3E4147, 0.1);
+}
+@mixin box-shadow2() {
+  box-shadow: 20px 18px 31px rgba(#3E4147, 0.4);
+}
+@mixin box-shadow3() {
+  box-shadow: 0 3px 30px rgba(#3E4147, 0.16);
+}

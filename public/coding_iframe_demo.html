@@ -1,0 +1,181 @@
+<!--
+
+/**
+* Copyright (c) 2020 Copyright bp All Rights Reserved.
+* Author: qiahao
+* Date: 2020-03-21 10:08
+* Desc:
+*/ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <title>title</title>
+  <style>
+    *{ margin: 0; padding: 0; }
+    body{ overflow-x: hidden; }
+    #CodingContent img{ width: 100%; display: block; }
+  </style>
+
+</head>
+<body>
+  <!-- CodingContent div保留 -->
+  <div id="CodingContent">
+    <!-- 以下是coding代码 -->
+    <!-- 替换下面内容为coding代码 -->
+
+    <div><a href="/product/detail?prdseq=1000000361"><span>to product</span></a></div>
+    <div><a href="/dev">to dev</a></div>
+
+    <!-- coding代码end -->
+  </div>
+  
+  <script>
+    // 提供top iframe 组件调用
+    var initIframeBridge = (function () {
+      var UPDATE_IFRAME_HEIGHT_INTERVAL = 3000;
+      // 此事件需与top对应事件保持一致
+      var EVENT_CODING_IFRAME_UPDATE_HEIGHT = 'EVENT_CODING_IFRAME_UPDATE_HEIGHT';
+      var EVENT_CODING_IFRAME_ROUTER = 'EVENT_CODING_IFRAME_ROUTER';
+      var EVENT_NOTIFY_UPDATE_KEY = 'EVENT_NOTIFY_UPDATE_KEY';
+      function IframeHelperCtr() {
+        this.key = '';
+        this.timer = null;
+        this.docHeight = 0;
+    
+        this.init();
+      }
+      IframeHelperCtr.prototype.init = function () {
+
+        var _this = this;
+
+        // 修改链接点击默认操作为 router.push
+        _this.resetAnchorBehaviour();
+        // 为window 添加message 事件 用于和top 通讯
+    
+        window.addEventListener(
+          'message',
+          function(event) {
+            const {name, key} = event.data || {};
+            if (name === EVENT_NOTIFY_UPDATE_KEY) {
+              _this.key = key + '';
+            }
+          },
+          false
+        );
+        // 轮询更新document高度
+        window.onunload = function () {
+          _this.stopUpdateHeight();
+        };
+        _this.startUpdateHeight();
+      };
+
+      // 重置a链接默认行为
+      IframeHelperCtr.prototype.resetAnchorBehaviour = function () {
+        var doc = document.documentElement;
+        var _this = this;
+        doc.onclick = function documentClickHandler (e) {
+
+          // 点击a标签，阻止默认行为；
+          // 执行router.push();
+          var a = getRouterAnchor(e);
+          if (a) {
+            var path = a.pathname;
+            var query = a.search ? getAnchorQuery(a.search) : {};
+    
+            var route = {
+              path: path,
+              query: query
+            };
+            var key = _this.key;
+            if (key) {
+              top.postMessage({
+                name: EVENT_CODING_IFRAME_ROUTER,
+                route: route,
+                key: key
+              }, '*');
+            }
+            e.preventDefault();
+            e.stopPropagation();
+          }
+        };
+      };
+
+      // 开始轮询更新高度
+      IframeHelperCtr.prototype.startUpdateHeight = function () {
+        var _this = this;
+        try {
+          _this.stopUpdateHeight();
+        } catch (e) {
+          console.error('clearInterval error');
+        }
+    
+        updateHeightHandler();
+
+        _this.timer = setInterval(function () {
+          updateHeightHandler();
+        }, UPDATE_IFRAME_HEIGHT_INTERVAL);
+
+        function updateHeightHandler() {
+          var h = document.documentElement.offsetHeight;
+          var key = _this.key;
+          if (h !== _this.docHeight && key) {
+            top.postMessage({
+              name: EVENT_CODING_IFRAME_UPDATE_HEIGHT,
+              height: h,
+              key: key
+            }, '*');
+            _this.docHeight = h;
+          }
+        }
+      };
+      IframeHelperCtr.prototype.stopUpdateHeight = function () {
+        clearInterval(this.timer);
+      };
+
+      function getRouterAnchor(e) {
+        var path = e.path;
+        var a = null;
+        for (var i = 0; i < path.length; i++) {
+          var el = path[i];
+          if (
+            el.nodeType === 1 &&
+            el.nodeName &&
+            el.nodeName.toLowerCase() === 'a'
+          ) {
+            var href = el.getAttribute('href');
+            // 此处简单过滤以 ‘/’开头的路由
+            if (href.indexOf('/') === 0) {
+              a = el;
+              break;
+            }
+          }
+        }
+        return a;
+      }
+
+      // 路由目前不支持传query
+      function getAnchorQuery(search) {
+        var query = {};
+        var str = search;
+        if (str[0] === '?') {
+          str = str.slice(1);
+        }
+        str.split('&').forEach(item => {
+          var a = item.split('=');
+          if (a && a.length) {
+            query[a[0]] = a[1];
+          }
+        });
+        return query;
+      }
+
+      new IframeHelperCtr();
+    })();
+    
+  </script>
+
+</body>
+</html>
