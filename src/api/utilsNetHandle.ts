@@ -8,9 +8,6 @@
  */
 
 import { codes, message } from './utilsNetCode';
-import { alertConfirm, alertToast } from '@/utils/src/utilsAlert';
-import bpui from 'bpui.js';
-import { PATH_LOGIN } from '../router/src/routesPath';
 
 // const SERVER_CODES = [codes.CODE_3000, codes.CODE_4000, codes.CODE_9000];
 
@@ -30,18 +27,6 @@ function handleError(response: any) {
   } else {
     msg = message[code] || errmsg;
   }
-  // TODO: 先注释
-  // if (code === codes.ERRCODE_2043) {
-  //   alertConfirm({
-  //     content: message.UNLOGIN,
-  //     confirm() {
-  //       bpui.libs.router.push(PATH_LOGIN);
-  //     }
-  //   }).catch(() => {});
-  // } else if (msg) {
-  //   alertToast(msg);
-  // }
-  alertToast(msg);
 }
 
 /**

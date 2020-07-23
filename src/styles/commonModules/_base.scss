@@ -234,3 +234,11 @@ border-left {
 .box-shadow3 {
   @include box-shadow3;
 }
+
+#app {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  min-height: 100%;
+  position: relative;
+}

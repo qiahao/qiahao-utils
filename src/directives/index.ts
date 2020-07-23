@@ -1,12 +1,6 @@
 import { getInstaller } from '@/utils';
 import clickoutside from './src/clickoutside';
-import gio from './src/gio';
 
-export { clickoutside, gio };
+export { clickoutside };
 
-// 全局注册
-const directives = {
-  gio
-};
-
-export default getInstaller('directive', directives);
+// export default getInstaller('directive', directives);

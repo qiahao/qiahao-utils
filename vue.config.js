@@ -1,17 +1,9 @@
 "use strict";
 
-/**
- * Copyright (c) 2017 Copyright bp All Rights Reserved.
- * Author: lipengxiang
- * Date: 2019-06-14 17:18
- * Desc:
- */
 const path = require("path");
 const config = require("./config");
 
-// process.env.NODE_ENV = 'production';
-
-const assetsDir = 'mobilestatic';
+const assetsDir = 'static';
 
 function resolve(dir) {
   return path.join(__dirname, dir);

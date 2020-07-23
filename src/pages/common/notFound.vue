@@ -1,23 +1,27 @@
+<!--
+/**
+* Copyright (c) 2020 Copyright bp All Rights Reserved.
+* Author: qiahao
+* Date: 2020-07-23
+* Desc:
+*/
+-->
 <template>
-  <div class="ins-indexTheme ins-indexTheme--christmes"></div>
+  <div class="qh-404">404</div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-// 圣诞节主题
 @Component({
-  name: 'IndexThemeChristmes',
+  name: 'Qh404',
   components: {}
 })
 export default class App extends Vue {
-
+  created() {}
+  mounted() {}
 }
 </script>
 
 <style lang="scss">
-@include b(indexTheme){
-  @include m(christmes){}
-}
-
 </style>

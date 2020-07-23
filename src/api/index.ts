@@ -1,11 +1,11 @@
 /*
  * @Author: qiahao
- * @Date:  2020-01-14 17:51
+ * @Date:  2020-07-20
  * @Last Modified by: qiahao
- * @Last Modified time: 2020-01-14 17:51
+ * @Last Modified time: 2020-07-20
  */
 
-import apiUser from './src/apiUser';
+
 export {
-  apiUser
+
 };

@@ -2,11 +2,11 @@
 * @Author: qiahao
 * @Date:  2020-01-14 17:22
 * @Last Modified by: qiahao
-* @Last Modified time: 2020-01-14 17:22
+* @Last Modified time: 2020-01-14
 */
 
 
-export function getInstaller(type: 'component' | 'filter' | 'directive', option: any) {
+function getInstaller(type: 'component' | 'filter' | 'directive', option: any) {
    return {
     installed: false,
     install(Vue: any) {
@@ -21,3 +21,6 @@ export function getInstaller(type: 'component' | 'filter' | 'directive', option:
   };
 }
 
+export {
+  getInstaller
+};

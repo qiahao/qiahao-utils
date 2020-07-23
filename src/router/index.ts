@@ -1,4 +1,4 @@
-// import Router from './src/router';
+import RouterInstance from './src/router';
 
+export default RouterInstance;
 export * from './src/routesPath';
-// export default Router;

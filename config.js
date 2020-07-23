@@ -12,14 +12,13 @@ exports.Port = 8083;
 
 
 exports.Proxy = {
-  // '/api': {
-  //   // target: 'https://stg.innisfree.cn', // todo
-  //   // target: 'http://local.innisfree.cn',
-  //   target: 'https://newdev.innisfree.cn',
-  //   changeOrigin: true,
-  //   pathRewrite: {
-  //     '^/api': '/api',
-  //     '^/data/api': '/api'
-  //   }
-  // }
+  '/api': {
+    target: 'https://newdev.innisfree.cn',
+    // target: 'https://new-stg.innisfree.cn',
+    changeOrigin: true,
+    pathRewrite: {
+      '^/api': '/api',
+      '^/data/api': '/api'
+    }
+  }
 };

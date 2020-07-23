@@ -1,9 +1,9 @@
 <template>
   <div class="ins-number ins-flex">
-    <ins-icon
-      @click.native="onClickMinus"
-      icon="minus"
-    ></ins-icon>
+    <i
+      @click="onClickMinus"
+      icon="icon icon-minus"
+    ></i>
     <div class="ins-flex__1">
       <div class="ins-number__content">
         <input
@@ -13,15 +13,14 @@
         />
       </div>
     </div>
-    <ins-icon
-      @click.native="onClickPlus"
-      icon="plus"
-    ></ins-icon>
+    <i
+      @click="onClickPlus"
+      icon="icon icon-plus"
+    ></i>
   </div>
 </template>
 
 <script>
-import InsIcon from '../InsIcon';
 export default {
   name: 'InsNumber',
   props: {
@@ -46,7 +45,6 @@ export default {
     return {};
   },
   components: {
-    InsIcon
   },
   computed: {
     num: {
