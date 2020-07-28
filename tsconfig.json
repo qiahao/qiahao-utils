@@ -20,15 +20,6 @@
       "@/*": [
         "src/*"
       ],
-      "bpui.js": [
-        "src/bpui/bpui.ts"
-      ],
-      "bpui.js.src": [
-        "node_modules/bpui.js/src/index.ts"
-      ],
-      "@bpui/*": [
-        "@bpui/*"
-      ]
     },
     "lib": [
       "esnext",
